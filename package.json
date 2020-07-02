@@ -1,0 +1,21 @@
+{
+  "name": "steam-web-api",
+  "description": "Implements the Steam Web API",
+  "version": "0.1.0",
+  "main": "steam-web-api",
+  "engines": {
+    "node": ">=0.4.11"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/tmarshall/Steam-Web-API/raw/master/LICENSE"
+    }
+  ],
+  "dependencies": {
+    "axios": "^0.19.2",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "flatted": "^2.0.2"
+  }
+}

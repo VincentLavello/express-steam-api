@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get this sort of information for any game.
+      </h3>
+      <h1>Game Name: <%= gameName %></h1>
+      <h1>Game Version: <%= gameVersion %></h1>
+      <div class="row">
+        <div
+          class="col-md-12"
+          style="height: 300px; overflow: auto; margin-bottom: 50px;"
+        >
+          <h2>Achievements</h2>
+          <table class="table">
+            <tr>
+              <td>Name</td>
+              <td>Defaultvalue</td>
+              <td>DisplayName</td>
+              <td>Hidden</td>
+              <td>Description</td>
+              <td>Icon</td>
+              <td>Icongray</td>
+            </tr>
+            <% availableGameStats.achievements.forEach(achievement => { %>
+            <tr>
+              <td><%= achievement.name %></td>
+              <td><%= achievement.defaultvalue %></td>
+              <td><%= achievement.displayName %></td>
+              <td><%= achievement.hidden %></td>
+              <td><%= achievement.description %></td>
+              <td>
+                <img src="<%= achievement.icon %>" alt="" />
+              </td>
+              <td>
+                <img src="<%= achievement.icongray %>" alt="" />
+              </td>
+            </tr>
+            <% }) %>
+          </table>
+        </div>
+        <div class="col-md-12" style="height: 300px; overflow: auto;">
+          <h2>Stats</h2>
+          <table>
+            <tr>
+              <td>Name</td>
+              <td>Defaultvalue</td>
+              <td>DisplayName</td>
+            </tr>
+            <% availableGameStats.stats.forEach(stat => { %>
+            <tr>
+              <td><%= stat.name %></td>
+              <td><%= stat.defaultvalue %></td>
+              <td><%= stat.displayName %></td>
+            </tr>
+            <% }) %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

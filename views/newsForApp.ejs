@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="overflow: auto;">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get the latest news of a given game.
+      </h3>
+      <h1>Game ID: <%= appnews.appid %></h1>
+      <h1>News Count: <%= appnews.count %></h1>
+      <table class="table">
+        <thead>
+          <th>Title</th>
+          <th>Url</th>
+          <th>is_external_url</th>
+          <th>Author</th>
+          <th>Contents</th>
+          <th>Feedlabel</th>
+          <th>Date</th>
+          <th>Feedname</th>
+          <th>Feed_type</th>
+          <th>Tags</th>
+        </thead>
+        <tbody>
+          <% appnews.newsitems.forEach(news => { %>
+          <tr>
+            <td><%= news.title %></td>
+            <td><%= news.url %></td>
+            <td><%= news.is_external_url %></td>
+            <td><%= news.author %></td>
+            <td><%= news.contents %></td>
+            <td><%= news.feedlabel %></td>
+            <td><%= news.date %></td>
+            <td><%= news.feedname %></td>
+            <td><%= news.feed_type %></td>
+            <td><%= news.tags %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

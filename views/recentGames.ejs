@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get a list of games that a user has played recently
+      </h3>
+      <h1>Recently Played Games: <%= total_count %></h1>
+      <table>
+        <tr>
+          <th>App ID</th>
+          <th>Name</th>
+          <th>PlayTime(Two Weeks)</th>
+          <th>PlayTime(Forever)</th>
+          <th>Image Icon</th>
+          <th>Image Logo</th>
+          <!-- http://media.steampowered.com/steamcommunity/public/images/apps/{appid}/{hash}.jpg -->
+        </tr>
+        <% games.forEach(game => { %>
+        <tr>
+          <td><%= game.appid %></td>
+          <td><%= game.name %></td>
+          <td><%= game.playtime_2weeks %></td>
+          <td><%= game.playtime_forever %></td>
+          <td>
+            <img
+              src='<%=
+            "http://media.steampowered.com/steamcommunity/public/images/apps/" +
+            game.appid + "/" + game.img_icon_url + ".jpg" %>'
+            />
+          </td>
+          <td>
+            <img
+              src='<%=
+            "http://media.steampowered.com/steamcommunity/public/images/apps/" +
+            game.appid + "/" + game.img_logo_url + ".jpg" %>'
+            />
+          </td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>

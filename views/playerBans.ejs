@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get BANS information for given users
+      </h3>
+      <table>
+        <thead>
+          <th>Player Steam ID</th>
+          <th>CommunityBanned</th>
+          <th>VACBanned</th>
+          <th>NumberOfVACBans</th>
+          <th>DaysSinceLastBan</th>
+          <th>NumberOfGameBans</th>
+          <th>EconomyBan</th>
+        </thead>
+        <tbody>
+          <% players.forEach(player => { %>
+          <tr>
+            <td><%= player.SteamId %></td>
+            <td><%= player.CommunityBanned %></td>
+            <td><%= player.VACBanned %></td>
+            <td><%= player.NumberOfVACBans %></td>
+            <td><%= player.DaysSinceLastBan %></td>
+            <td><%= player.NumberOfGameBans %></td>
+            <td><%= player.EconomyBan %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

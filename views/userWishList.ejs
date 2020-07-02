@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="p-3 px-5" style="overflow: auto;">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get the wishlist of a user
+      </h3>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <th>Game ID</th>
+              <th>Name</th>
+              <th>Capsule</th>
+              <th>Review_score</th>
+              <th>Review_desc</th>
+              <th>Reviews_total</th>
+              <th>Reviews_percent</th>
+              <th>Release Date</th>
+              <th>Price</th>
+              <th>Type</th>
+              <th>Screenshots</th>
+              <th>Priority</th>
+              <th>Overall Reviews</th>
+              <th>Added Date</th>
+              <th>Background</th>
+              <th>Rank</th>
+              <th>Tags</th>
+              <th>Is free?</th>
+              <th>Prerelease</th>
+              <th>Win</th>
+            </thead>
+            <tbody>
+              <% wishList.forEach(wish => { %>
+              <tr>
+                <td><%= wish.gameID %></td>
+                <td><%= wish.name %></td>
+                <td><img style="width: 100px;" src="<%= wish.capsule %>" /></td>
+                <td><%= wish.review_score %></td>
+                <td><%= wish.review_desc %></td>
+                <td><%= wish.reviews_total %></td>
+                <td><%= wish.reviews_percent %></td>
+                <td><%= wish.release_string %></td>
+                <td>
+                  <ul style="padding-left: 20px;">
+                    <% wish.subs.forEach(sub => { %>
+                    <li>$<%= sub.price / 100 %></li>
+                    <% }) %>
+                  </ul>
+                </td>
+                <td><%= wish.type %></td>
+                <td>
+                  <ul style="padding-left: 20px;">
+                    <% wish.screenshots.forEach(screenshot => { %>
+                    <li>
+                      <img
+                        style="width: 100px;"
+                        src='<%= "https://steamcdn-a.akamaihd.net/steam/apps/" + wish.gameID + "/" + screenshot %>'
+                      />
+                    </li>
+                    <% }) %>
+                  </ul>
+                </td>
+                <td><%= wish.review_css %></td>
+                <td><%= wish.priority%></td>
+                <td><%= wish.added %></td>
+                <td>
+                  <img style="width: 100px;" src="<%= wish.background %>" />
+                </td>
+                <td><%= wish.rank %></td>
+                <td>
+                  <ul style="padding-left: 20px;">
+                    <% wish.tags.forEach(tag => { %>
+                    <li>
+                      <%= tag %>
+                    </li>
+                    <% }) %>
+                  </ul>
+                </td>
+                <td><%= wish.is_free_game %></td>
+                <td><%= wish.prerelease %></td>
+                <td><%= wish.win %></td>
+              </tr>
+              <% }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

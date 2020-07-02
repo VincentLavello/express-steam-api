@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get global achievements overview of a specific game in
+        percentages.
+      </h3>
+      <table class="table">
+        <tr>
+          <td>Name</td>
+          <td>Percent</td>
+        </tr>
+        <% achievements.forEach(achievement => { %>
+        <tr>
+          <td><%= achievement.name %></td>
+          <td><%= achievement.percent %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>

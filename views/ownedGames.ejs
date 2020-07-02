@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get a list of games that a user owns
+      </h3>
+      <h1>Game Count: <%= game_count %></h1>
+      <table>
+        <tr>
+          <th>App ID</th>
+          <th>Playtime</th>
+          <th>PlayTime Windows</th>
+          <th>PlayTime Mac</th>
+          <th>PlayTime Linux</th>
+        </tr>
+        <% games.forEach(game => { %>
+        <tr>
+          <td><%= game.appid %></td>
+          <td><%= game.playtime_forever %></td>
+          <td><%= game.playtime_windows_forever %></td>
+          <td><%= game.playtime_mac_forever %></td>
+          <td><%= game.playtime_linux_forever %></td>
+        </tr>
+        <% }) %>
+      </table>
+    </div>
+  </body>
+</html>

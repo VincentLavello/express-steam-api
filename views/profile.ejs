@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      table {
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #ddd;
+        text-align: left;
+        padding: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" style="overflow: auto;">
+      <a href="/"> < BACK </a>
+      <h3 style="color: red;">
+        We can get profile informatio of given users.
+      </h3>
+      <table class="table">
+        <thead>
+          <th>Steam ID</th>
+          <th>Community Visibility State</th>
+          <th>Profile State</th>
+          <th>Personaname</th>
+          <th>Comment Permission</th>
+          <th>Profile Url</th>
+          <th>Avatar</th>
+          <th>Avatar Medium</th>
+          <th>Avatar Full</th>
+          <th>Avatar Hash</th>
+          <th>Personastate</th>
+          <th>Real Name</th>
+          <th>Primary Clanid</th>
+          <th>Time Created</th>
+          <th>Personastate Flags</th>
+        </thead>
+        <tbody>
+          <% players.forEach(player => { %>
+          <tr>
+            <td><%= player.steamid %></td>
+            <td><%= player.communityvisibilitystate %></td>
+            <td><%= player.profilestate %></td>
+            <td><%= player.personaname %></td>
+            <td><%= player.commentpermission %></td>
+            <td><%= player.profileurl %></td>
+            <td>
+              <img src="<%= player.avatar %>" />
+            </td>
+            <td>
+              <img src="<%= player.avatarmedium %>" />
+            </td>
+            <td>
+              <img src="<%= player.avatarfull %>" />
+            </td>
+            <td><%= player.avatarhash %></td>
+            <td><%= player.personastate %></td>
+            <td><%= player.realname %></td>
+            <td><%= player.primaryclanid %></td>
+            <td><%= player.timecreated %></td>
+            <td><%= player.personastateflags %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
